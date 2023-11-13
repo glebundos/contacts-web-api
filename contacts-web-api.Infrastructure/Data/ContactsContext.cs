@@ -20,8 +20,8 @@ namespace contacts_web_api.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Job>()
-                .HasMany(x => x.Contacts);
+            modelBuilder.Entity<Contact>()
+                .HasOne(x => x.Job);
         }
 
         public virtual void SetModified(object entity)
