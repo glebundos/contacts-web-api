@@ -22,7 +22,7 @@ namespace contacts_web_api.Application.Handlers
         public async Task<List<Contact>> Handle(GetAllContactsQuery request, CancellationToken cancellationToken)
         {
             var contacts = (List<Contact>)await _contactRepo.GetAllAsync();
-
+            contacts = contacts.OrderBy(x => x.Name).ToList();
             return contacts;
         }
     }
